@@ -12,6 +12,9 @@ class Character:
 
     def attack(self, enemy):
         enemy.health -= self.power
+        print(f"{self.name} did {self.power} damage to {enemy.name}")
+        if enemy.alive() == False:
+            print(f"{enemy.name} is dead!")
     
     def __str__(self):
         return f"""
