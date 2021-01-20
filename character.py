@@ -1,3 +1,5 @@
+import random
+
 class Character:
     def __init__(self, health, power, name):
         self.health = health
@@ -19,4 +21,11 @@ class Character:
     def __str__(self):
         return f"""
         {self.name} has {self.health} health and {self.power}"""
+
+    def chance(self):
+        num = random.randint(1, 5)
+        if num == 1:
+            return True
+        else:
+            return False
 
