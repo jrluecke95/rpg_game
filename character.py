@@ -1,10 +1,11 @@
 import random
 
 class Character:
-    def __init__(self, health, power, name):
+    def __init__(self, health, power, name, bounty=5):
         self.health = health
         self.power = power
         self.name = name
+        self.bounty = bounty
     
     def alive(self):
         if self.health > 0:
@@ -22,8 +23,15 @@ class Character:
         return f"""
         {self.name} has {self.health} health and {self.power}"""
 
-    def chance(self):
+    def chance_twenty(self):
         num = random.randint(1, 5)
+        if num == 1:
+            return True
+        else:
+            return False
+    
+    def chance_ten(self):
+        num = random.randint(1, 10)
         if num == 1:
             return True
         else:
