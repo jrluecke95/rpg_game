@@ -1,11 +1,12 @@
 import random
 
 class Character:
-    def __init__(self, health, power, name, bounty=5):
+    def __init__(self, health, power, name, bounty=5, armor=0):
         self.health = health
         self.power = power
         self.name = name
         self.bounty = bounty
+        self.armor = armor
     
     def alive(self):
         if self.health > 0:
@@ -14,14 +15,15 @@ class Character:
             return False
 
     def attack(self, enemy):
-        enemy.health -= self.power
-        print(f"{self.name} did {self.power} damage to {enemy.name}")
+        net_damage = self.power - enemy.armor
+        enemy.health -= net_damage
+        print(f"{self.name} did {net_damage} damage to {enemy.name}")
         if enemy.alive() == False:
             print(f"{enemy.name} is dead!")
     
-    def __str__(self):
-        return f"""
-        {self.name} has {self.health} health and {self.power}"""
+    def print_status(self):
+        return(print(f"""
+        {self.name} has {self.health} health and {self.power}"""))
 
     def chance_twenty(self):
         num = random.randint(1, 5)
