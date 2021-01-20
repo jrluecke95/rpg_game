@@ -11,7 +11,7 @@ class Hero(Character):
         super().__init__(health, power, name)
 
     def attack(self, enemy):
-        if self.chance == True:
+        if self.chance() == True:
             enemy.health -= (self.power * 2)
             print(f"{self.name} did {self.power} damage to {enemy.name}")
         else:
