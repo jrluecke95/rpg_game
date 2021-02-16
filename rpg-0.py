@@ -5,6 +5,7 @@ from shadow import Shadow
 from wizard import Wizard
 from dragon import Dragon
 import random
+# \added comment
 
 def main():
     my_hero = Hero()
